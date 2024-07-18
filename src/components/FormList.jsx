@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 
 
 export const FormList = () => {
+  // Uncontrolled
   const inputRef = useRef();
   const [wishlistItems,setWishlistItems] = useState([])
 

@@ -1,15 +1,35 @@
 import { Button, Input } from "@nextui-org/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { axiosInstance } from "../lib/axios";
 
 
 const WishlistPage = () => {
   const [wishlistItems,setWishlistItems] = useState([]);
   const [wishlistInput,setWishlistInput] = useState("")
 
+  const fetchWishlistItems = async () => {
+    const response = await axiosInstance.get("/whislist-items")
+
+    setWishlistItems(response.data)
+  }
+
   const addInput = () => {
     setWishlistItems([...wishlistItems,wishlistInput]);
     setWishlistInput("")
   }
+
+  const addWishlist = async () => {
+    await axiosInstance.post("/whislist-items", {
+      name: wishlistInput,
+    })
+
+    fetchWishlistItems();
+    setWishlistInput("")
+  }
+
+  useEffect(() => {
+    fetchWishlistItems();
+  },[])
   return(
     <>
       <div className="flex flex-col">
@@ -17,12 +37,12 @@ const WishlistPage = () => {
       <Input type="email" label="WishList" value={wishlistInput} color="secondary" onChange={(event) => {
         setWishlistInput(event.target.value)
       }} />
-      <Button color="secondary" onClick={addInput}>
+      <Button color="secondary" onClick={addWishlist}>
       add
     </Button>
     </div>
     <ul className="mx-auto">{wishlistItems.map((item) => {
-      return <li>{item}</li>
+      return <li key={item.id}>{item.name}</li>
     })}</ul>
     </div>
     </>

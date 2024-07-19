@@ -11,7 +11,8 @@ import WishlistPage from './pages/WishlistPage'
 
 function App() {
 
-  return <SignUpPage/>
+  // return <SignUpPage/>
+  return <WishlistPage/>
 }
 
 export default App

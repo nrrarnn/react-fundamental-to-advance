@@ -1,6 +1,7 @@
 import { Button, Input } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../lib/axios";
+import { toast } from "sonner";
 
 
 const WishlistPage = () => {
@@ -8,23 +9,35 @@ const WishlistPage = () => {
   const [wishlistInput,setWishlistInput] = useState("")
 
   const fetchWishlistItems = async () => {
-    const response = await axiosInstance.get("/whislist-items")
+    try{
 
-    setWishlistItems(response.data)
+      const response = await axiosInstance.get("/whislist-items")
+  
+      setWishlistItems(response.data)
+    } catch(error) {
+      toast.error("Server error")
+    }
   }
 
-  const addInput = () => {
-    setWishlistItems([...wishlistItems,wishlistInput]);
-    setWishlistInput("")
-  }
+  // const addInput = () => {
+  //   setWishlistItems([...wishlistItems,wishlistInput]);
+  //   setWishlistInput("")
+  // }
 
   const addWishlist = async () => {
-    await axiosInstance.post("/whislist-items", {
-      name: wishlistInput,
-    })
+    try{
 
-    fetchWishlistItems();
-    setWishlistInput("")
+      await axiosInstance.post("/whislist-items", {
+        name: wishlistInput,
+      })
+  
+      fetchWishlistItems();
+      setWishlistInput("");
+
+      toast.success("You have an added item")
+    } catch(error) {
+      toast.error("Server Error")
+    }
   }
 
   useEffect(() => {

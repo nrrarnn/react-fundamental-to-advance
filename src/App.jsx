@@ -1,4 +1,5 @@
 
+import { Toaster } from 'sonner'
 import './App.css'
 import Counter from './components/Counter'
 import CounterClass from './components/CounterClass'
@@ -12,7 +13,12 @@ import WishlistPage from './pages/WishlistPage'
 function App() {
 
   // return <SignUpPage/>
-  return <WishlistPage/>
+  return (
+    <>
+      <Toaster/>
+      <WishlistPage/>
+    </>
+  )
 }
 
 export default App

@@ -6,19 +6,12 @@ import Footer from './components/Footer'
 import FormList2 from './components/FormList2'
 import HeaderNav from './components/HeaderNav'
 import TodoCard from './components/TodoCard'
+import { SignUpPage } from './pages/SignUpPage'
+import WishlistPage from './pages/WishlistPage'
 
 function App() {
 
-  return (
-    <>
-      <HeaderNav/>
-        <FormList2/>
-        <TodoCard/>
-        <Counter/>
-        <CounterClass/>
-      <Footer message="ini adalah footer"/>
-    </>
-  )
+  return <SignUpPage/>
 }
 
 export default App

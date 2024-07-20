@@ -32,7 +32,7 @@ const WishlistPage = () => {
       })
   
       fetchWishlistItems();
-      setWishlistInput("");
+      setWishlistInput("");``
 
       toast.success("You have an added item")
     } catch(error) {

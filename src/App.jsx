@@ -15,8 +15,9 @@ function App() {
   // return <SignUpPage/>
   return (
     <>
-      <Toaster/>
-      <WishlistPage/>
+      {/* <Toaster/>
+      <WishlistPage/> */}
+      <TodoCard/>
     </>
   )
 }

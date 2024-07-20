@@ -1,4 +1,5 @@
 import {Card, CardHeader, CardBody, Image} from "@nextui-org/react"
+import { PropTypes } from "prop-types"
 
 const TodoList = (props) => {
   return(
@@ -18,6 +19,10 @@ const TodoList = (props) => {
       </CardBody>
     </Card>
   )
+}
+
+TodoList.propTypes ={
+  day: PropTypes.string,
 }
 
 export default TodoList;

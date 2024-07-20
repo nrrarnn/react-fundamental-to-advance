@@ -9,16 +9,19 @@ import HeaderNav from './components/HeaderNav'
 import TodoCard from './components/TodoCard'
 import { SignUpPage } from './pages/SignUpPage'
 import WishlistPage from './pages/WishlistPage'
+import { Route, Routes } from 'react-router-dom'
+import { ProfilePage } from './pages/ProfilePages'
 
 function App() {
 
   // return <SignUpPage/>
   return (
-    <>
-      {/* <Toaster/>
-      <WishlistPage/> */}
-      <TodoCard/>
-    </>
+    <Routes>
+      <Route element={<WishlistPage/>} path='/' />
+       
+      {/* <TodoCard/> */}
+      <Route element={<ProfilePage/>} path='/profile/:username'/>
+    </Routes>
   )
 }
 

@@ -2,11 +2,15 @@ import { Button, Input } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../lib/axios";
 import { toast } from "sonner";
+import { useSelector } from "react-redux";
 
 
 const WishlistPage = () => {
   const [wishlistItems,setWishlistItems] = useState([]);
-  const [wishlistInput,setWishlistInput] = useState("")
+  const [wishlistInput,setWishlistInput] = useState("");
+
+  const selector = useSelector((store) => store.counter)
+  const messageSelector = useSelector((store) => store.message)
 
   const fetchWishlistItems = async () => {
     try{
@@ -53,10 +57,12 @@ const WishlistPage = () => {
       <Button color="secondary" onClick={addWishlist}>
       add
     </Button>
+    <p>Global state{selector.count}</p>
     </div>
     <ul className="mx-auto">{wishlistItems.map((item) => {
       return <li key={item.id}>{item.name}</li>
     })}</ul>
+    <p>{messageSelector}</p>
     </div>
     </>
   )

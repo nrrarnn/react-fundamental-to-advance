@@ -17,8 +17,9 @@ function App() {
   // return <SignUpPage/>
   return (
     <Routes>
-      <Route element={<WishlistPage/>} path='/' />
-       
+      <Route element={<WishlistPage/>} path='/wishlist' />
+       <Route element={<Counter/>} path='/'/>
+       <Route element={<CounterClass/>} path='/counter-class'/>
       {/* <TodoCard/> */}
       <Route element={<ProfilePage/>} path='/profile/:username'/>
     </Routes>

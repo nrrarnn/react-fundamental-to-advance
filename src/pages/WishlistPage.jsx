@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { useSelector } from "react-redux";
 
 
+
 const WishlistPage = () => {
   const [wishlistItems,setWishlistItems] = useState([]);
   const [wishlistInput,setWishlistInput] = useState("");
@@ -57,7 +58,6 @@ const WishlistPage = () => {
       <Button color="secondary" onClick={addWishlist}>
       add
     </Button>
-    <p>Global state{selector.count}</p>
     </div>
     <ul className="mx-auto">{wishlistItems.map((item) => {
       return <li key={item.id}>{item.name}</li>

@@ -9,6 +9,8 @@ import {
 import { Controller, useForm } from "react-hook-form";
 import {z} from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { SignUpConsumer, SignUpProvider } from "../context/SignUpContext";
+import Header from "../components/Header";
 
 const signUpFromSchema = z.object({
   email: z.string().email("Format email belum sesuai"),
@@ -33,6 +35,18 @@ export const SignUpPage = () => {
     alert("Data Submitted")
   }
   return(
+  <SignUpProvider value={{
+    title: "Sign Up Page"
+  }}>
+    {/* <HeaderNav/> */}
+    <Header/>
+    <SignUpConsumer>
+      {
+        (context) => {
+          return <p>{context.title}</p>
+        }
+      }
+    </SignUpConsumer>
     <div className="flex h-screen items-center justify-center">
       <Card className="w-[300px]">
         <CardHeader className="font-semibold text-lg">
@@ -88,5 +102,6 @@ export const SignUpPage = () => {
         </CardBody>
       </Card>
     </div>
+  </SignUpProvider>
   )
 }

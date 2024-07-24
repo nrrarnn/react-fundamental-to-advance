@@ -20,6 +20,7 @@ function App() {
       <Route element={<WishlistPage/>} path='/wishlist' />
        <Route element={<Counter/>} path='/'/>
        <Route element={<CounterClass/>} path='/counter-class'/>
+       <Route element={<SignUpPage/>} path='/sign-up' />
       {/* <TodoCard/> */}
       <Route element={<ProfilePage/>} path='/profile/:username'/>
     </Routes>

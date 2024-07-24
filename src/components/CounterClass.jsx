@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 class CounterClass extends React.Component {
   state = {
     count : 0,
-    inputCounter: 0
+    // inputCounter: 0
   };
 
   addCount =() => {
@@ -26,15 +26,13 @@ class CounterClass extends React.Component {
         </div>
 
         <div>
-            <Input type="number" value={this.state.inputCounter} onChange={(event) => {
-              this.setState({inputCounter : parseInt(event.target.value) })
-            }}/>
-            <Button color="secondary" onClick={this.props.setGlobalCounter(inputCounter)}>Set</Button>
+            <Input type="number"/>
+            <Button color="secondary" >Set</Button>
           </div>
 
-          <Button color="primary" onClick={this.props.incrementGlobalCounter}> + </Button> 
+          <Button color="primary"> + </Button> 
             <p>{this.selector.count}</p>
-          <Button color="danger" onClick={this.props.decrementGlobalCounter}> - </Button>
+          <Button color="danger"> - </Button>
           <p>Global state:{this.props.counter.count} </p>
       </>
     
